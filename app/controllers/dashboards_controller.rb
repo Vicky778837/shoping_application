@@ -1,4 +1,8 @@
 class DashboardsController < ApplicationController
   def index
-  end
+    @products = Product.where(["name Like?","%#{params[:search]}"])
+  
+ 
+end
+
 end

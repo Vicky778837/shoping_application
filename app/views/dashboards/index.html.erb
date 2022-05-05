@@ -1,2 +1,59 @@
-<h1>Dashboards#index</h1>
-<p>Find me in app/views/dashboards/index.html.erb</p>
+<style>
+  #card:hover
+{
+width:420px;
+height: 360px;
+border-radius: 10px;
+box-shadow: 2px 2px 5px black;
+transition: 500ms liner;
+transform: 1s all;
+z-index: 1000;
+
+}
+.admin{
+  font-family: px;
+  padding: 5px;
+  color: red;
+  font-size: px;
+  float:right;
+}
+</style>
+ <%#if user_signed_in?%>
+ <% if current_user.present? && current_user.role == "admin"%>
+ <%=link_to "add",new_product_path,class:"btn btn-success",style:"margin:10px; width:200px;"%>
+ <div class="admin">
+ <span class="">Admin</span>
+ <%end%>
+ <span class="fa fa-user" aria-hidden="true"><%=current_user %></span>
+</div>
+  <div class="container-fluid">
+  <div class="row">
+  <%@products.each do |f|%>
+  <div class="col-sm-4">
+  <div class="card mb-3" id="card">
+  <div class="col-md-8">
+  <div class="card-body">
+  <h5 class="card-title"> <%=f.name%></h5>
+  <p class="card-text"><%#=f.price%></p>
+  <p class="card-text"><%#=f.%></p>
+  <%=image_tag(f.avatar,style:"height:200px;width:200px;") if f.avatar.attached?%>&nbsp;&nbsp;&nbsp;
+  <% if current_user.present? && current_user.role == "admin"%>
+     <%=link_to"show",product_path(f.id),class:"btn btn-primary",style:"margin-left:10px;margin-top:10px;"%>&nbsp;&nbsp;&nbsp;
+      <%=link_to"delete",product_path(f.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class:"btn btn-danger",style:"margin-left:10px;margin-top:10px;"%>
+      <%else%>
+      <%= link_to "Add to cart" ,add_to_cart_path(cart_id: @cart_id ,id: f.id,price:f.price,name:f.name,avatar:f.avatar),method: :post,class:"btn btn-info",style:"margin-left:10px;margin-top:10px;"%>
+      <%=link_to"show",product_path(f.id),class:"btn btn-primary",style:"margin-left:10px;margin-top:10px;"%>
+    <%end%>
+   </div>
+  </div>
+  </div>
+  </div>
+  <%end%>
+</div>
+</div>
+
+<!-- <script>
+$("#card").hover(function(){
+  $(this).attr("src") = // url of the new image
+});
+</script> -->

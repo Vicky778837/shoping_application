@@ -1,0 +1,34 @@
+
+<div class="col-lg-6 mx-lg-auto">
+<div class="card shadow">
+  <div class="card-header">
+  <h2 class="card title text center">Add new products</h2>
+  </div>
+  <div class="card-body">
+
+    <%= form_with model: @product do |f| %>
+     <div form-group>
+     <%= f.label :name,class: "mb-2" %><br>
+     <%= f.text_field :name,class: "form-control form-control-lg"%>
+  </div>
+
+     <div form-group>
+    <%= f.label :price,class: "mb-2" %><br>
+    <%= f.text_field :price ,class: "form-control form-control-lg" %>
+  </div>
+
+     <div form-group>
+    <%= f.label :description,class: "mb-2" %><br>
+    <%= f.text_field :description,class: "form-control form-control-lg" %>
+  </div>
+
+     <div form-group>
+    <%= f.label :image,class: "mb-2" %><br>
+    <%= f.file_field :avatar,class: "form-control form-control-lg"%>
+  </div>
+  <%=f.submit"submit",class:"btn btn-success",style:"margin:10px;"%>
+
+<%end%>
+</div>
+  </div>
+</div>

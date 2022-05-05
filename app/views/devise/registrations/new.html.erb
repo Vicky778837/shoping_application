@@ -1,3 +1,11 @@
+<style>
+  .sign{
+  background: rgb(55, 153, 0.33);
+  margin-top:10px;
+  margin-buttom:15px;
+  border-radius:15px;
+  }
+</style>
 
 <div class="col-lg-6 mx-lg-auto">
 <div class="card shadow">
@@ -5,8 +13,7 @@
   <h2 class="card title text center">Sign up</h2>
   </div>
   <div class="card-body">
-
-
+ 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -19,6 +26,11 @@
     <%= f.text_field :lname, autofocus: true, autocomplete: "last_name",class: "form-control form-control-lg" %>
   </div>
 
+ 
+<div class="form-group">
+   <%= f.label :select,class: "mb-2" %>
+<%= f.select :role,["admin","user","seller"],class: "form-control form-control-lg"%>
+</div>
 
   <div class="field">
     <%= f.label :phone,class: "mb-2" %><br />
@@ -56,6 +68,7 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
 </div>
 </div>
 </div>

@@ -1,0 +1,31 @@
+<center ><h1>show </h1></center>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card mb-3" id="card">
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-4 img_show">
+                <%= image_tag(@line_item.product.avatar, style:"height:150px;width:230px;") if @line_item.product.avatar.attached? %>
+              </div>
+              <div class="col-sm-8">
+                <h5 class="card-title"> <%=@line_item.product.name %></h5>
+            <p class="card-text">price : <%=@line_item.price %></p>
+
+            <p class="card-text"> description : <%=@line_item.product.description%></p>
+            <%total_price = @line_item.quantity * @line_item.price  %>
+            <%#byebug%>
+             Quantity: <%= @line_item.quantity %> Total Price: <%= number_to_currency(total_price) %>
+                <%= link_to "Backs", root_path,class:"btn btn-secondary", style:"margin-left:40px;margin-top:20px; width:100px;"%>
+          
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   

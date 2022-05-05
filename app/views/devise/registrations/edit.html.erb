@@ -13,6 +13,35 @@
     <%= f.label :email,class: "mb-2" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control form-control-lg" %>
   </div>
+<div class="form-group">
+    <%= f.label :first_name ,class: "mb-2" %><br />
+    <%= f.text_field :fname, autofocus: true, autocomplete: "first_name",class: "form-control form-control-lg" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name,class: "mb-2" %><br />
+    <%= f.text_field :lname, autofocus: true, autocomplete: "last_name",class: "form-control form-control-lg" %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :role,class: "mb-2" %><br />
+    <%= f.text_field :role, autofocus: true, autocomplete: "last_name",class: "form-control form-control-lg" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :phone,class: "mb-2" %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone",class: "form-control form-control-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address,class: "mb-2" %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address",class: "form-control form-control-lg" %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :date_of_birth,class: "mb-2" %><br />
+    <%= f.date_field  :dob, autofocus: true, autocomplete: "usersname",class: "form-control form-control-lg" %>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
