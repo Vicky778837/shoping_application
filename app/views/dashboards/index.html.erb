@@ -21,11 +21,14 @@ z-index: 1000;
  <%#if user_signed_in?%>
  <% if current_user.present? && current_user.role == "admin"%>
  <%=link_to "add",new_product_path,class:"btn btn-success",style:"margin:10px; width:200px;"%>
+ <%if user_signed_in?%>
  <div class="admin">
  <span class="">Admin</span>
  <%end%>
- <span class="fa fa-user" aria-hidden="true"><%=current_user %></span>
+
+ <span class="fa fa-user" aria-hidden="true"><%= " #{current_user.role}: #{current_user.email} " %></span> 
 </div>
+<%end%>
   <div class="container-fluid">
   <div class="row">
   <%@products.each do |f|%>
